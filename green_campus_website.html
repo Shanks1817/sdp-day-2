@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Campus | Sustainable College</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #17351f;
+      background: #f5faf6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #0d5c32;
+      color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    }
+
+    nav {
+      max-width: 1150px;
+      margin: auto;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+    }
+
+    .logo {
+      font-size: 1.45rem;
+      font-weight: bold;
+    }
+
+    .logo span { color: #b7ef8a; }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover { color: #b7ef8a; }
+
+    .hero {
+      min-height: 75vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 70px 20px;
+      color: white;
+      background:
+        linear-gradient(rgba(4, 61, 31, .72), rgba(4, 61, 31, .72)),
+        linear-gradient(135deg, #1f8f4d, #72b85b);
+    }
+
+    .hero-content { max-width: 850px; }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #c8f169;
+      color: #12371e;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 75px 22px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: #0d5c32;
+      margin-bottom: 8px;
+    }
+
+    .section-title p { color: #557060; }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .intro-card, .info-card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(21, 74, 39, .09);
+    }
+
+    .campus-visual {
+      min-height: 300px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: white;
+      font-size: 4rem;
+      background: linear-gradient(145deg, #1a7841, #9dcc63);
+    }
+
+    .campus-visual small {
+      display: block;
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 27px;
+      border-radius: 15px;
+      border-top: 5px solid #45a65d;
+      box-shadow: 0 5px 18px rgba(21, 74, 39, .08);
+    }
+
+    .card .icon { font-size: 2.2rem; margin-bottom: 10px; }
+    .card h3 { color: #0d5c32; margin-bottom: 8px; }
+
+    .solar {
+      background: #eaf7df;
+    }
+
+    .solar-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .solar-panel {
+      background: linear-gradient(135deg, #174f78, #3d86a9);
+      border-radius: 18px;
+      min-height: 300px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 5rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.7rem;
+      color: #168044;
+    }
+
+    .waste-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .waste-item {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,.06);
+    }
+
+    .waste-item b { color: #0d5c32; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-item {
+      min-height: 190px;
+      border-radius: 15px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #3a8f52, #9ac65c);
+    }
+
+    .gallery-item:nth-child(2) { background: linear-gradient(135deg, #347b9e, #71b9c4); }
+    .gallery-item:nth-child(3) { background: linear-gradient(135deg, #687d39, #b4c96b); }
+    .gallery-item:nth-child(4) { background: linear-gradient(135deg, #478b52, #86c987); }
+    .gallery-item:nth-child(5) { background: linear-gradient(135deg, #8a9c43, #d1d87c); }
+    .gallery-item:nth-child(6) { background: linear-gradient(135deg, #28765e, #72b69b); }
+
+    .contact {
+      background: #0d5c32;
+      color: white;
+      max-width: none;
+    }
+
+    .contact-inner {
+      max-width: 1150px;
+      margin: auto;
+      padding: 75px 22px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .contact h2 { color: #c8f169; margin-bottom: 12px; }
+
+    form {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      color: #17351f;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 14px;
+      border: 1px solid #ccd9cf;
+      border-radius: 8px;
+      font: inherit;
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    button {
+      border: none;
+      cursor: pointer;
+      background: #168044;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      background: #073c20;
+      color: #d7ebdc;
+      padding: 20px;
+    }
+
+    @media (max-width: 800px) {
+      nav { flex-direction: column; padding: 15px; gap: 10px; }
+      nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .intro, .solar-grid, .contact-grid { grid-template-columns: 1fr; }
+      .cards, .gallery, .stats { grid-template-columns: 1fr; }
+      .hero { min-height: 65vh; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">🌱 Green <span>Campus</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#activities">Activities</a></li>
+      <li><a href="#solar">Solar Energy</a></li>
+      <li><a href="#waste">Waste</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Green Campus</h1>
+    <p>A sustainable campus committed to clean energy, responsible waste management, biodiversity and a greener future.</p>
+    <a class="btn" href="#about">Explore Our Campus</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-title">
+    <h2>College Introduction</h2>
+    <p>Learning today while protecting tomorrow.</p>
+  </div>
+
+  <div class="intro">
+    <div class="intro-card">
+      <h3>Our Green Vision</h3>
+      <p>
+        Our college aims to create an environmentally responsible campus where
+        students, faculty and staff work together to conserve natural resources
+        and reduce environmental impact.
+      </p>
+      <br>
+      <p>
+        Through renewable energy, water conservation, tree plantation,
+        sustainable transportation and responsible waste management, the campus
+        encourages students to turn environmental awareness into everyday action.
+      </p>
+    </div>
+
+    <div class="campus-visual">
+      🌳
+      <div>
+        <strong>Learn • Act • Sustain</strong>
+        <small>A campus built around sustainability</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="activities">
+  <div class="section-title">
+    <h2>Green Campus Activities</h2>
+    <p>Practical initiatives that make our campus more sustainable.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🌳</div>
+      <h3>Tree Plantation</h3>
+      <p>Planting and caring for trees to increase green cover and improve the campus environment.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💧</div>
+      <h3>Water Conservation</h3>
+      <p>Rainwater harvesting, leak prevention and responsible water use help conserve this valuable resource.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚲</div>
+      <h3>Green Transportation</h3>
+      <p>Walking, cycling, carpooling and public transport can reduce fuel consumption and emissions.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌱</div>
+      <h3>Organic Gardening</h3>
+      <p>Campus gardens can promote biodiversity while giving students practical environmental experience.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">♻️</div>
+      <h3>Recycling Drives</h3>
+      <p>Students can collect and segregate recyclable materials through regular campus drives.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧹</div>
+      <h3>Clean Campus Campaigns</h3>
+      <p>Awareness programmes and cleanliness drives encourage everyone to keep shared spaces clean.</p>
+    </div>
+  </div>
+</section>
+
+<section id="solar" class="solar">
+  <div class="section-title">
+    <h2>Solar Energy</h2>
+    <p>Using renewable energy to reduce dependence on conventional power sources.</p>
+  </div>
+
+  <div class="solar-grid">
+    <div class="solar-panel">☀️</div>
+    <div class="info-card">
+      <h3>Solar Power on Campus</h3>
+      <p>
+        Solar panels can be installed on rooftops, parking areas and other
+        suitable spaces to generate clean electricity for campus facilities.
+      </p>
+      <br>
+      <p>
+        Solar energy can help reduce electricity consumption from conventional
+        sources and also provides students with a real-world example of renewable
+        energy technology.
+      </p>
+
+      <div class="stats">
+        <div class="stat"><strong>☀️</strong>Renewable</div>
+        <div class="stat"><strong>⚡</strong>Clean Energy</div>
+        <div class="stat"><strong>🌍</strong>Lower Impact</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="waste">
+  <div class="section-title">
+    <h2>Waste Management</h2>
+    <p>Segregate, reduce, reuse and recycle.</p>
+  </div>
+
+  <div class="waste-list">
+    <div class="waste-item">🟢 <span><b>Wet Waste:</b> Food scraps and biodegradable waste can be composted.</span></div>
+    <div class="waste-item">🔵 <span><b>Dry Waste:</b> Paper, cardboard, glass and suitable plastics should be segregated for recycling.</span></div>
+    <div class="waste-item">🔴 <span><b>E-Waste:</b> Electronic waste should be collected separately and sent to authorized recyclers.</span></div>
+    <div class="waste-item">🟡 <span><b>Reduce Plastic:</b> Encourage reusable bottles, bags and containers instead of single-use plastics.</span></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="section-title">
+    <h2>Campus Images</h2>
+    <p>Replace these sample panels with photographs of your actual college.</p>
+  </div>
+
+  <div class="gallery">
+    <div class="gallery-item">🌳<br>Green Campus</div>
+    <div class="gallery-item">☀️<br>Solar Panels</div>
+    <div class="gallery-item">♻️<br>Waste Segregation</div>
+    <div class="gallery-item">🌱<br>Tree Plantation</div>
+    <div class="gallery-item">💧<br>Water Conservation</div>
+    <div class="gallery-item">🚲<br>Green Transport</div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-inner">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Have an idea for making our campus greener? Get in touch.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <h2>Green Campus Committee</h2>
+        <p>📍 College Campus, Bengaluru, Karnataka</p>
+        <p>📧 greencampus@college.edu</p>
+        <p>📞 +91 98765 43210</p>
+        <br>
+        <p>
+          Students and staff are welcome to share suggestions, ideas and
+          initiatives related to sustainability.
+        </p>
+      </div>
+
+      <form onsubmit="sendMessage(event)">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Enter your name" required>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Enter your email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Your suggestion..." required></textarea>
+
+        <button type="submit">Send Message</button>
+        <p id="formMessage" style="margin-top:12px;"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Green Campus | Sustainable Campus Initiative
+</footer>
+
+<script>
+  function sendMessage(event) {
+    event.preventDefault();
+    document.getElementById("formMessage").textContent =
+      "Thank you! Your message has been recorded for this demo.";
+    event.target.reset();
+  }
+</script>
+
+</body>
+</html>
